@@ -340,6 +340,19 @@ document.addEventListener("DOMContentLoaded", function () {
 </section>
 
 </main> <!-- /main -->
+<script>
+// Open document links (PDFs and slide decks) in a new tab.
+// Regular page navigation stays in the same tab.
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("a[href]").forEach(function (a) {
+    var path = (a.getAttribute("href") || "").split(/[?#]/)[0];
+    if (/\.pdf$/i.test(path) || /(^|\/)decks\/.+\.html$/i.test(path)) {
+      a.setAttribute("target", "_blank");
+      a.setAttribute("rel", "noopener");
+    }
+  });
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
