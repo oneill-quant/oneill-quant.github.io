@@ -60,7 +60,7 @@
     "href": "math-camp/prob-stats.html",
     "title": "Probability & Statistics",
     "section": "",
-    "text": "The second half of camp continues into probability, statistics, and a first look at econometrics — the direct on-ramp to V706. Each module gets a slide deck and a problem set; they are posted here as camp approaches. Work the problem set before checking any answers — each module’s solutions appear in the table at 4:00 p.m. the following day.\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nSlides\nProblem set\nSolutions\n\n\n\n\n7\nAug 11\nFoundations of probability\nto be posted\nto be posted\nAug 12, 4 p.m.\n\n\n8\nAug 12\nRandom variables, distributions & expectations\nto be posted\nto be posted\nAug 13, 4 p.m.\n\n\n9\nAug 13\nStatistics & statistical inference\nto be posted\nto be posted\nAug 14, 4 p.m.\n\n\n10\nAug 14\nIntroduction to econometrics\nto be posted\nto be posted\nAug 15, 4 p.m.\n\n\n\n\n\n\n\n\n\nNoteHow to use these modules\n\n\n\nWork the modules in order — each builds on the previous. Readings for each module are listed in the syllabus. Give every problem an honest attempt before looking anything up."
+    "text": "The second half of camp continues into probability and statistics — the direct on-ramp to V706. Each module gets a slide deck and a problem set; they are posted here as camp approaches. Work the problem set before checking any answers — each module’s solutions appear in the table at 4:00 p.m. the following day.\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nSlides\nProblem set\nSolutions\n\n\n\n\n7\nAug 11\nFoundations of probability\nto be posted\nto be posted\nAug 12, 4 p.m.\n\n\n8\nAug 12\nRandom variables, distributions & expectations\nto be posted\nto be posted\nAug 13, 4 p.m.\n\n\n9\nAug 13\nStatistics & statistical inference\nto be posted\nto be posted\nAug 14, 4 p.m.\n\n\n10\nAug 14\nStatistics & statistical inference, continued\nto be posted\nto be posted\nAug 15, 4 p.m.\n\n\n\n\n\n\n\n\n\nNoteHow to use these modules\n\n\n\nWork the modules in order — each builds on the previous. Readings for each module are listed in the syllabus. Give every problem an honest attempt before looking anything up."
   },
   {
     "objectID": "math-camp/mathematics.html",
@@ -81,7 +81,7 @@
     "href": "math-camp/index.html",
     "title": "Math Camp",
     "section": "",
-    "text": "A two-week review that prepares incoming PhD students for the O’Neill quantitative sequence, organized into ten one-day modules. Modules 1–6 cover mathematics; modules 7–10 continue into probability, statistics, and an introduction to econometrics. A third component — the computing workflow used throughout the program — runs alongside."
+    "text": "A two-week review that prepares incoming PhD students for the O’Neill quantitative sequence, organized into ten one-day modules. Modules 1–6 cover mathematics; modules 7–10 continue into probability and statistics. A third component — the computing workflow used throughout the program — runs alongside."
   },
   {
     "objectID": "math-camp/index.html#logistics",
@@ -102,7 +102,7 @@
     "href": "math-camp/index.html#schedule",
     "title": "Math Camp",
     "section": "Schedule",
-    "text": "Schedule\n\n\n\nModule\nDate\nTopic\n\n\n\n\n1\nMon Aug 3\nAlgebra & functions\n\n\n2\nTue Aug 4\nLimits, continuity & derivatives\n\n\n3\nWed Aug 5\nOptimization & the firm\n\n\n4\nThu Aug 6\nIntegration\n\n\n5\nFri Aug 7\nMatrix algebra\n\n\n6\nMon Aug 10\nMultivariable & constrained optimization\n\n\n7\nTue Aug 11\nFoundations of probability\n\n\n8\nWed Aug 12\nRandom variables, distributions & expectations\n\n\n9\nThu Aug 13\nStatistics & statistical inference\n\n\n10\nFri Aug 14\nIntroduction to econometrics"
+    "text": "Schedule\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\n\n\n\n\n1\nMon Aug 3\nAlgebra & functions\n\n\n2\nTue Aug 4\nLimits, continuity & derivatives\n\n\n3\nWed Aug 5\nOptimization & the firm\n\n\n4\nThu Aug 6\nIntegration\n\n\n5\nFri Aug 7\nMatrix algebra\n\n\n6\nMon Aug 10\nMultivariable & constrained optimization\n\n\n7\nTue Aug 11\nFoundations of probability\n\n\n8\nWed Aug 12\nRandom variables, distributions & expectations\n\n\n9\nThu Aug 13\nStatistics & statistical inference\n\n\n10\nFri Aug 14\nStatistics & statistical inference, continued — review & exam prep"
   },
   {
     "objectID": "guides/git-workflow.html",
