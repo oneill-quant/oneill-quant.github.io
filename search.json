@@ -1,0 +1,135 @@
+[
+  {
+    "objectID": "courses/v706.html",
+    "href": "courses/v706.html",
+    "title": "V706 — Statistics for Research in Public Affairs",
+    "section": "",
+    "text": "Lecture slides, lab materials, and assignments appear here week by week during the fall semester."
+  },
+  {
+    "objectID": "courses/v706.html#lectures",
+    "href": "courses/v706.html#lectures",
+    "title": "V706 — Statistics for Research in Public Affairs",
+    "section": "Lectures",
+    "text": "Lectures\nMaterials link here as they are released.\n\n\n\nWeek\nTopic\nSlides\n\n\n\n\n1\nOverview of econometrics\n—\n\n\n2\nProbability theory and random variables\n—\n\n\n3\nConditional expectation functions\n—\n\n\n4\nLinear projections and linear models of the CEF\n—\n\n\n5\nRandom sampling and estimation\n—\n\n\n…"
+  },
+  {
+    "objectID": "courses/v707.html",
+    "href": "courses/v707.html",
+    "title": "V707 — Econometrics II",
+    "section": "",
+    "text": "🚧\n  This page is under construction. Materials arrive when the course runs (spring semester).\n  ← Back to the hub"
+  },
+  {
+    "objectID": "guides/index.html",
+    "href": "guides/index.html",
+    "title": "Guides",
+    "section": "",
+    "text": "Standing references for the PhD — not tied to any one course.\n\n\n\nGuide\nStatus\n\n\n\n\nComputing Setup\nAvailable\n\n\nGit & Reproducible Work\nAvailable\n\n\nSurviving Year One\nUnder construction\n\n\nResearch & Writing Tips\nUnder construction"
+  },
+  {
+    "objectID": "guides/computing-setup.html",
+    "href": "guides/computing-setup.html",
+    "title": "Computing Setup",
+    "section": "",
+    "text": "Everything in the sequence runs on the same toolkit. Install these before Math Camp ends; the decks below walk through each piece.\n\n\n\nStep\nTool\nWhere\n\n\n\n\n1\nR\ncran.r-project.org\n\n\n2\nRStudio\nposit.co/download/rstudio-desktop\n\n\n3\nQuarto\nquarto.org/docs/get-started\n\n\n4\nLaTeX (TeX Live / MacTeX)\ntug.org/texlive\n\n\n5\nGit\ngit-scm.com/downloads\n\n\n\nFor the full walkthrough — including how we organize projects and which R packages to install — see:\n\nW1 — R the O’Neill way\nW5 — Project setup"
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Hansen, Econometrics (2021) — main text for V706\nHansen, Probability and Statistics for Economists (2021)\nAngrist & Pischke, Mostly Harmless Econometrics (2008)\nWooldridge, Econometric Analysis of Cross Section and Panel Data\nWooldridge, Introductory Econometrics"
+  },
+  {
+    "objectID": "resources.html#textbooks",
+    "href": "resources.html#textbooks",
+    "title": "Resources",
+    "section": "",
+    "text": "Hansen, Econometrics (2021) — main text for V706\nHansen, Probability and Statistics for Economists (2021)\nAngrist & Pischke, Mostly Harmless Econometrics (2008)\nWooldridge, Econometric Analysis of Cross Section and Panel Data\nWooldridge, Introductory Econometrics"
+  },
+  {
+    "objectID": "resources.html#software",
+    "href": "resources.html#software",
+    "title": "Resources",
+    "section": "Software",
+    "text": "Software\n\n\n\nTool\nPurpose\nGet it\n\n\n\n\nR\nAll computing in the sequence\ncran.r-project.org\n\n\nRStudio\nEditor\nposit.co\n\n\nQuarto\nDocuments and slides\nquarto.org\n\n\nGit\nVersion control\ngit-scm.com\n\n\n\nSee the computing setup guide for install order and the decks that walk through each tool."
+  },
+  {
+    "objectID": "math-camp/prob-stats.html",
+    "href": "math-camp/prob-stats.html",
+    "title": "Probability & Statistics",
+    "section": "",
+    "text": "The second half of camp continues into probability, statistics, and a first look at econometrics — the direct on-ramp to V706."
+  },
+  {
+    "objectID": "math-camp/prob-stats.html#slide-decks",
+    "href": "math-camp/prob-stats.html#slide-decks",
+    "title": "Probability & Statistics",
+    "section": "Slide decks",
+    "text": "Slide decks\nInteractive HTML decks — open in the browser; press f for fullscreen. These are being updated ahead of camp, so reload the page for the latest version.\n\n\n\nDeck\nTopic\nSlides\n\n\n\n\nM1\nProbability and random variables\nHTML\n\n\nM2\nExpectation\nHTML\n\n\nM3\nVariance, covariance, and correlation\nHTML\n\n\nM4\nThe normal and sampling distributions\nHTML\n\n\nM5\nThe law of large numbers and the CLT\nHTML\n\n\n\nReference: Hansen, Probability and Statistics for Economists (2021)."
+  },
+  {
+    "objectID": "math-camp/mathematics.html",
+    "href": "math-camp/mathematics.html",
+    "title": "Mathematics",
+    "section": "",
+    "text": "Six one-day modules. The notes are the primary resource; the slides cover the same material in compact form. Work the problem set before checking any answers — solutions are released during camp.\n\n\n\nModule\nDate\nTopic\nNotes\nSlides\nProblem set\n\n\n\n\n1\nAug 3\nAlgebra & functions\nPDF\nPDF\nPDF\n\n\n2\nAug 4\nLimits, continuity & derivatives\nPDF\nPDF\nPDF\n\n\n3\nAug 5\nOptimization & the firm\nPDF\nPDF\nPDF\n\n\n4\nAug 6\nIntegration\nPDF\nPDF\nPDF\n\n\n5\nAug 7\nMatrix algebra\nPDF\nPDF\nPDF\n\n\n6\nAug 10\nMultivariable & constrained optimization\nPDF\nPDF\nPDF\n\n\n\n\n\n\n\n\n\nNoteHow to use these modules\n\n\n\nWork the modules in order — each builds on the previous. Give every problem an honest attempt before looking anything up. Complete all modules before the fall semester starts."
+  },
+  {
+    "objectID": "math-camp/workflow.html",
+    "href": "math-camp/workflow.html",
+    "title": "Workflow & Coding",
+    "section": "",
+    "text": "The computing toolkit for the PhD sequence: R the way we use it, project organization, and version control. Work through these alongside camp — and set up your machine early (start with W1).\n\n\n\nDeck\nTopic\nSlides\n\n\n\n\nW1\nR the O’Neill way\nHTML\n\n\nW2\nR basics\nHTML\n\n\nW3\ndata.table\nHTML\n\n\nW4\nWays of working\nHTML\n\n\nW5\nProject setup\nHTML\n\n\nW6\nGit and GitHub\nHTML"
+  },
+  {
+    "objectID": "math-camp/index.html",
+    "href": "math-camp/index.html",
+    "title": "Math Camp",
+    "section": "",
+    "text": "A two-week review that prepares incoming PhD students for the O’Neill quantitative sequence, organized into ten one-day modules. Modules 1–6 cover mathematics; modules 7–10 continue into probability, statistics, and an introduction to econometrics. A third component — the computing workflow used throughout the program — runs alongside."
+  },
+  {
+    "objectID": "math-camp/index.html#the-daily-rhythm",
+    "href": "math-camp/index.html#the-daily-rhythm",
+    "title": "Math Camp",
+    "section": "The daily rhythm",
+    "text": "The daily rhythm\nEach module is designed to take one day. SPEA 270 is reserved for you for both weeks — you are highly encouraged to work through camp together.\n\n\n\n10:00 a.m.\nMeet in SPEA 270; work through the module’s lecture notes together\n\n\nMidday\nAttempt the problem set on your own — honest attempts before looking anything up\n\n\n1:00 p.m.\nReconvene to compare answers and discuss\n\n\nFollowing day\nTurn in your handwritten problem set (Prof. Ortega’s mailbox, or scan to alorte@iu.edu)\n\n\n\nProblem sets are ungraded — they are where the learning happens. The final exam is in person, without AI tools, and is graded."
+  },
+  {
+    "objectID": "math-camp/index.html#schedule",
+    "href": "math-camp/index.html#schedule",
+    "title": "Math Camp",
+    "section": "Schedule",
+    "text": "Schedule\n\n\n\nModule\nDate\nTopic\n\n\n\n\n1\nMon Aug 3\nAlgebra & functions\n\n\n2\nTue Aug 4\nLimits, continuity & derivatives\n\n\n3\nWed Aug 5\nOptimization & the firm\n\n\n4\nThu Aug 6\nIntegration\n\n\n5\nFri Aug 7\nMatrix algebra\n\n\n6\nMon Aug 10\nMultivariable & constrained optimization\n\n\n7\nTue Aug 11\nFoundations of probability\n\n\n8\nWed Aug 12\nRandom variables, distributions & expectations\n\n\n9\nThu Aug 13\nStatistics & statistical inference\n\n\n10\nFri Aug 14\nIntroduction to econometrics"
+  },
+  {
+    "objectID": "math-camp/index.html#logistics",
+    "href": "math-camp/index.html#logistics",
+    "title": "Math Camp",
+    "section": "Logistics",
+    "text": "Logistics\n\n\n\nDates\nAugust 3–14, 2026\n\n\nLocation\nSPEA 270\n\n\nInstructors\nAlberto Ortega (alorte@iu.edu) · Coady Wing (cwing@iu.edu)\n\n\nSyllabus\nPDF"
+  },
+  {
+    "objectID": "guides/git-workflow.html",
+    "href": "guides/git-workflow.html",
+    "title": "Git & Reproducible Work",
+    "section": "",
+    "text": "Every project in the sequence is a Git repository with a replication-package structure: raw data in one place, numbered scripts that run start to finish, and outputs that regenerate from code.\nStart here:\n\nW6 — Git and GitHub — the version-control workflow we use\nW4 — Ways of working — how the pieces fit together day to day\nW5 — Project setup — the folder structure every project follows"
+  },
+  {
+    "objectID": "courses/eval.html",
+    "href": "courses/eval.html",
+    "title": "Program Evaluation",
+    "section": "",
+    "text": "🚧\n  This page is under construction.\n  ← Back to the hub"
+  },
+  {
+    "objectID": "courses/micro.html",
+    "href": "courses/micro.html",
+    "title": "Microeconomics",
+    "section": "",
+    "text": "🚧\n  This page is under construction.\n  ← Back to the hub"
+  }
+]
