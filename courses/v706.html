@@ -295,7 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll("a[href]").forEach(function (a) {
     var path = (a.getAttribute("href") || "").split(/[?#]/)[0];
-    if (/\.pdf$/i.test(path) || /(^|\/)decks\/.+\.html$/i.test(path)) {
+    if (/\.pdf$/i.test(path) || /(^|\/)(decks|materials)\/.+\.html$/i.test(path)) {
       a.setAttribute("target", "_blank");
       a.setAttribute("rel", "noopener");
     }
