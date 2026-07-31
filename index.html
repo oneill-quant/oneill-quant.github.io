@@ -68,6 +68,29 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<!-- Make the "Math Camp" navbar dropdown clickable: on desktop the parent
+     navigates to the overview page and the menu opens on hover; on narrow
+     screens the default tap-to-toggle behavior is kept so the menu stays
+     reachable. -->
+<style>
+@media (min-width: 992px) {
+  .navbar .dropdown:hover > .dropdown-menu { display: block; margin-top: 0; }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.matchMedia("(min-width: 992px)").matches) return;
+  document.querySelectorAll(".navbar a.dropdown-toggle").forEach(function (a) {
+    if (a.textContent.trim() === "Math Camp") {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = "/math-camp/";
+      });
+    }
+  });
+});
+</script>
 
 
 </head>
@@ -191,11 +214,11 @@ ul.task-list li input[type="checkbox"] {
         <div class="hub-parts"><a href="math-camp/mathematics.html">Mathematics</a><span>·</span><a href="math-camp/prob-stats.html">Probability &amp; Statistics</a><span>·</span><a href="math-camp/workflow.html">Workflow &amp; Coding</a></div>
       </div>
     </div>
-    <div class="hub-course">
+    <div class="hub-course hub-soon">
       <div class="hub-badge">V706</div>
       <div>
         <h3>Statistics for Research in Public Affairs</h3>
-        <a class="hub-golink" href="courses/v706.html">Course page →</a>
+        <span class="hub-soon-tag">Under construction</span>
       </div>
     </div>
     <div class="hub-course hub-soon">

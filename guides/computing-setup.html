@@ -68,6 +68,29 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<!-- Make the "Math Camp" navbar dropdown clickable: on desktop the parent
+     navigates to the overview page and the menu opens on hover; on narrow
+     screens the default tap-to-toggle behavior is kept so the menu stays
+     reachable. -->
+<style>
+@media (min-width: 992px) {
+  .navbar .dropdown:hover > .dropdown-menu { display: block; margin-top: 0; }
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  if (!window.matchMedia("(min-width: 992px)").matches) return;
+  document.querySelectorAll(".navbar a.dropdown-toggle").forEach(function (a) {
+    if (a.textContent.trim() === "Math Camp") {
+      a.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.location.href = "/math-camp/";
+      });
+    }
+  });
+});
+</script>
 
 
 </head>
