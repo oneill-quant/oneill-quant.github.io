@@ -60,14 +60,7 @@
     "href": "math-camp/prob-stats.html",
     "title": "Probability & Statistics",
     "section": "",
-    "text": "The second half of camp continues into probability, statistics, and a first look at econometrics — the direct on-ramp to V706."
-  },
-  {
-    "objectID": "math-camp/prob-stats.html#slide-decks",
-    "href": "math-camp/prob-stats.html#slide-decks",
-    "title": "Probability & Statistics",
-    "section": "Slide decks",
-    "text": "Slide decks\nInteractive HTML decks — open in the browser; press f for fullscreen. These are being updated ahead of camp, so reload the page for the latest version.\n\n\n\nDeck\nTopic\nSlides\n\n\n\n\nM1\nProbability and random variables\nHTML\n\n\nM2\nExpectation\nHTML\n\n\nM3\nVariance, covariance, and correlation\nHTML\n\n\nM4\nThe normal and sampling distributions\nHTML\n\n\nM5\nThe law of large numbers and the CLT\nHTML\n\n\n\nReference: Hansen, Probability and Statistics for Economists (2021), chapters 1–3."
+    "text": "The second half of camp continues into probability, statistics, and a first look at econometrics — the direct on-ramp to V706. The slides are the primary resource: interactive HTML decks that open in the browser (press f for fullscreen; reload for the latest version). Work the problem set before checking any answers — each module’s solutions appear in the table at 2:00 p.m. the following day.\n\n\n\nModule\nDate\nTopic\nSlides\nProblem set\nSolutions\n\n\n\n\n7\nAug 11\nFoundations of probability\nHTML\nto be posted\nAug 12, 2 p.m.\n\n\n8\nAug 12\nRandom variables, distributions & expectations\nHTML · HTML\nto be posted\nAug 13, 2 p.m.\n\n\n9\nAug 13\nStatistics & statistical inference\nHTML · HTML\nto be posted\nAug 14, 2 p.m.\n\n\n10\nAug 14\nIntroduction to econometrics\n—\nto be posted\nAug 15, 2 p.m.\n\n\n\n\n\n\n\n\n\nNoteHow to use these modules\n\n\n\nWork the modules in order — each builds on the previous. Readings for each module are listed in the syllabus. Give every problem an honest attempt before looking anything up."
   },
   {
     "objectID": "math-camp/mathematics.html",
