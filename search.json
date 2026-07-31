@@ -25,7 +25,7 @@
     "href": "guides/index.html",
     "title": "Guides",
     "section": "",
-    "text": "Standing references for the PhD — not tied to any one course.\n\n\n\nGuide\nStatus\n\n\n\n\nComputing Setup\nAvailable\n\n\nGit & Reproducible Work\nAvailable\n\n\nSurviving Year One\nUnder construction\n\n\nResearch & Writing Tips\nUnder construction"
+    "text": "Standing references for the PhD — not tied to any one course.\n\n\n\nGuide\nStatus\n\n\n\n\nComputing Setup\nAvailable\n\n\nGit & Reproducible Work\nAvailable\n\n\nThriving in Year One\nUnder construction\n\n\nResearch & Writing Tips\nUnder construction"
   },
   {
     "objectID": "guides/computing-setup.html",
@@ -91,11 +91,18 @@
     "text": "A two-week review that prepares incoming PhD students for the O’Neill quantitative sequence, organized into ten one-day modules. Modules 1–6 cover mathematics; modules 7–10 continue into probability, statistics, and an introduction to econometrics. A third component — the computing workflow used throughout the program — runs alongside."
   },
   {
+    "objectID": "math-camp/index.html#logistics",
+    "href": "math-camp/index.html#logistics",
+    "title": "Math Camp",
+    "section": "Logistics",
+    "text": "Logistics\n\n\n\nDates\nAugust 3–14, 2026\n\n\nLocation\nSPEA 270\n\n\nInstructors\nAlberto Ortega (alorte@iu.edu) · Coady Wing (cwing@iu.edu)\n\n\nSyllabus\nPDF"
+  },
+  {
     "objectID": "math-camp/index.html#the-daily-rhythm",
     "href": "math-camp/index.html#the-daily-rhythm",
     "title": "Math Camp",
     "section": "The daily rhythm",
-    "text": "The daily rhythm\nEach module is designed to take one day. SPEA 270 is reserved for you for both weeks — you are highly encouraged to work through camp together.\n\n\n\n10:00 a.m.\nMeet in SPEA 270; work through the module’s lecture notes together\n\n\nMidday\nAttempt the problem set on your own — honest attempts before looking anything up\n\n\n1:00 p.m.\nReconvene to compare answers and discuss\n\n\nFollowing day\nTurn in your handwritten problem set (Prof. Ortega’s mailbox, or scan to alorte@iu.edu)\n\n\n\nProblem sets are ungraded — they are where the learning happens. The final exam is in person, without AI tools, and is graded."
+    "text": "The daily rhythm\nEach module is designed to take one day. SPEA 270 is reserved for you for both weeks — you are highly encouraged to work through camp together.\n\n\n\n10:00 a.m.\nMeet in SPEA 270; work through the module’s lecture notes together\n\n\nMidday\nAttempt the problem set on your own — honest attempts before looking anything up\n\n\n1:00 p.m.\nReconvene to compare answers and discuss\n\n\nFollowing day\nTurn in your handwritten problem set (Prof. Ortega’s mailbox, or scan to alorte@iu.edu)\n\n\n\nProblem sets are ungraded — they are where the learning happens. The final exam is in person, without AI tools, and is graded.\nAlongside the modules, take a look at the Computing Setup and Git & Reproducible Work guides — getting your machine and workflow in shape during camp makes the start of the fall courses much smoother."
   },
   {
     "objectID": "math-camp/index.html#schedule",
@@ -103,13 +110,6 @@
     "title": "Math Camp",
     "section": "Schedule",
     "text": "Schedule\n\n\n\nModule\nDate\nTopic\n\n\n\n\n1\nMon Aug 3\nAlgebra & functions\n\n\n2\nTue Aug 4\nLimits, continuity & derivatives\n\n\n3\nWed Aug 5\nOptimization & the firm\n\n\n4\nThu Aug 6\nIntegration\n\n\n5\nFri Aug 7\nMatrix algebra\n\n\n6\nMon Aug 10\nMultivariable & constrained optimization\n\n\n7\nTue Aug 11\nFoundations of probability\n\n\n8\nWed Aug 12\nRandom variables, distributions & expectations\n\n\n9\nThu Aug 13\nStatistics & statistical inference\n\n\n10\nFri Aug 14\nIntroduction to econometrics"
-  },
-  {
-    "objectID": "math-camp/index.html#logistics",
-    "href": "math-camp/index.html#logistics",
-    "title": "Math Camp",
-    "section": "Logistics",
-    "text": "Logistics\n\n\n\nDates\nAugust 3–14, 2026\n\n\nLocation\nSPEA 270\n\n\nInstructors\nAlberto Ortega (alorte@iu.edu) · Coady Wing (cwing@iu.edu)\n\n\nSyllabus\nPDF"
   },
   {
     "objectID": "guides/git-workflow.html",
