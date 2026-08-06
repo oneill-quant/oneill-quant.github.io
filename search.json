@@ -1,5 +1,40 @@
 [
   {
+    "objectID": "courses/v706.html",
+    "href": "courses/v706.html",
+    "title": "V706 — Statistics for Research in Public Affairs I",
+    "section": "",
+    "text": "Lecture slides, lab materials, and assignments appear here week by week during the fall semester."
+  },
+  {
+    "objectID": "courses/v706.html#lectures",
+    "href": "courses/v706.html#lectures",
+    "title": "V706 — Statistics for Research in Public Affairs I",
+    "section": "Lectures",
+    "text": "Lectures\nMaterials link here as they are released.\n\n\n\nWeek\nTopic\nSlides\n\n\n\n\n1\nOverview of econometrics\n—\n\n\n2\nProbability theory and random variables\n—\n\n\n3\nConditional expectation functions\n—\n\n\n4\nLinear projections and linear models of the CEF\n—\n\n\n5\nRandom sampling and estimation\n—\n\n\n…"
+  },
+  {
+    "objectID": "courses/v707.html",
+    "href": "courses/v707.html",
+    "title": "V707 — Statistics for Research in Public Affairs II",
+    "section": "",
+    "text": "🚧\n  This page is under construction. Materials arrive when the course runs (spring semester).\n  ← Back to the hub"
+  },
+  {
+    "objectID": "guides/index.html",
+    "href": "guides/index.html",
+    "title": "Guides",
+    "section": "",
+    "text": "Standing references for the PhD — not tied to any one course.\n\n\n\nGuide\nStatus\n\n\n\n\nComputing Setup\nAvailable\n\n\nGit & Reproducible Work\nAvailable\n\n\nThriving in Year One\nUnder construction\n\n\nResearch & Writing Tips\nUnder construction"
+  },
+  {
+    "objectID": "guides/computing-setup.html",
+    "href": "guides/computing-setup.html",
+    "title": "Computing Setup",
+    "section": "",
+    "text": "Everything in the sequence runs on the same toolkit. Install these before Math Camp ends; the decks below walk through each piece.\n\n\n\nStep\nTool\nWhere\n\n\n\n\n1\nR\ncran.r-project.org\n\n\n2\nRStudio\nposit.co/download/rstudio-desktop\n\n\n3\nQuarto\nquarto.org/docs/get-started\n\n\n4\nLaTeX (TeX Live / MacTeX)\ntug.org/texlive\n\n\n5\nGit\ngit-scm.com/downloads\n\n\n\nFor the full walkthrough — including how we organize projects and which R packages to install — see:\n\nW1 — R the O’Neill way\nW5 — Project setup"
+  },
+  {
     "objectID": "resources.html",
     "href": "resources.html",
     "title": "Resources",
@@ -21,32 +56,25 @@
     "text": "Software\n\n\n\nTool\nPurpose\nGet it\n\n\n\n\nR\nAll computing in the sequence\ncran.r-project.org\n\n\nRStudio\nEditor\nposit.co\n\n\nQuarto\nDocuments and slides\nquarto.org\n\n\nGit\nVersion control\ngit-scm.com\n\n\n\nSee the computing setup guide for install order and the decks that walk through each tool."
   },
   {
-    "objectID": "guides/git-workflow.html",
-    "href": "guides/git-workflow.html",
-    "title": "Git & Reproducible Work",
-    "section": "",
-    "text": "Every project in the sequence is a Git repository with a replication-package structure: raw data in one place, numbered scripts that run start to finish, and outputs that regenerate from code.\nStart here:\n\nW6 — Git and GitHub — the version-control workflow we use\nW4 — Ways of working — how the pieces fit together day to day\nW5 — Project setup — the folder structure every project follows"
-  },
-  {
-    "objectID": "courses/eval.html",
-    "href": "courses/eval.html",
-    "title": "P762 — Public Program Evaluation",
-    "section": "",
-    "text": "🚧\n  This page is under construction.\n  ← Back to the hub"
-  },
-  {
-    "objectID": "courses/micro.html",
-    "href": "courses/micro.html",
-    "title": "P710 — Microeconomics for Public Policy",
-    "section": "",
-    "text": "🚧\n  This page is under construction.\n  ← Back to the hub"
-  },
-  {
     "objectID": "math-camp/prob-stats.html",
     "href": "math-camp/prob-stats.html",
     "title": "Probability & Statistics",
     "section": "",
     "text": "The second half of camp continues into probability and statistics — the direct on-ramp to V706. Each module runs theory in the morning and computing in the afternoon, with a problem set that has a part for each. Work the problem set before checking any answers — each module’s solutions appear in the table after 4:00 p.m. the following day.\nEach module has a morning theory deck and an afternoon computing deck, and module 9 adds a short evening session on the named distributions. They appear in the Slides column as they are posted.\n\n\n\n\n\n\n\n\n\n\n\nModule\nDate\nTopic\nSlides\nProblem set\nSolutions\n\n\n\n\n7\nAug 11\nProbability & random variables\nin progress\nin progress\nin progress\n\n\n8\nAug 12\nExpectation, variance & moments\nin progress\nin progress\nin progress\n\n\n9\nAug 13\nCovariance, correlation & distributions\nin progress\nin progress\nin progress\n\n\n10\nAug 14\nSampling distributions, LLN & CLT\nin progress\nin progress\nin progress\n\n\n\nSlides and problem sets for these modules are being revised and will be posted before camp. The topics and dates above are settled.\n\n\n\n\n\n\nNoteHow to use these modules\n\n\n\nWork the modules in order — each builds on the previous. Readings for each module are listed in the syllabus. Give every problem an honest attempt before looking anything up, and write your own R rather than having it written for you. The bugs and the error messages are the curriculum, not an obstacle to it.\n\n\nGet R and RStudio installed before Module 7: start with W1 and the Computing Setup guide. The full computing track, including Git, is on the Workflow & Coding page.\nReference: Bruce E. Hansen, Probability and Statistics for Economists (Princeton University Press, 2021) — chapters 1–3, 6–7."
+  },
+  {
+    "objectID": "math-camp/mathematics.html",
+    "href": "math-camp/mathematics.html",
+    "title": "Mathematics",
+    "section": "",
+    "text": "Six one-day modules. The notes are the primary resource; the slides cover the same material in compact form. Work the problem set before checking any answers — each module’s solutions appear in the table after 4:00 p.m. the following day.\n\n\n\nModule\nDate\nTopic\nNotes\nSlides\nProblem set\nSolutions\n\n\n\n\n1\nAug 3\nAlgebra & functions\nPDF\nPDF\nPDF\nPDF\n\n\n2\nAug 4\nLimits, continuity & derivatives\nPDF\nPDF\nPDF\nPDF\n\n\n3\nAug 5\nOptimization & the firm\nPDF\nPDF\nPDF\nAug 6, after 4 p.m.\n\n\n4\nAug 6\nIntegration\nPDF\nPDF\nPDF\nAug 7, after 4 p.m.\n\n\n5\nAug 7\nMatrix algebra\nPDF\nPDF\nPDF\nAug 8, after 4 p.m.\n\n\n6\nAug 10\nMultivariable & constrained optimization\nPDF\nPDF\nPDF\nAug 11, after 4 p.m.\n\n\n\n\n\n\n\n\n\nNoteHow to use these modules\n\n\n\nWork the modules in order — each builds on the previous. Give every problem an honest attempt before looking anything up. Complete all modules before the fall semester starts."
+  },
+  {
+    "objectID": "math-camp/workflow.html",
+    "href": "math-camp/workflow.html",
+    "title": "Workflow & Coding",
+    "section": "",
+    "text": "The computing toolkit for the PhD sequence: R the way we use it, project organization, and version control. W2–W5 are the afternoon sessions of August 11–14, each paired with a problem set on the Probability & Statistics page. W1 and W6 are yours to work through on your own — do W1 early, before camp starts, so your machine is ready.\n\n\n\nDeck\nTopic\nWhen\nSlides\n\n\n\n\nW1\nR the O’Neill way\nBefore camp\nHTML\n\n\nW2\nR basics\nTue Aug 11 p.m.\nHTML\n\n\nW3\ndata.table\nWed Aug 12 p.m.\nHTML\n\n\nW4\nWays of working\nThu Aug 13 p.m.\nHTML\n\n\nW5\nProject setup\nFri Aug 14 p.m.\nHTML\n\n\nW6\nGit and GitHub\nAnytime\nHTML\n\n\n\nSee also the Computing Setup and Git & Reproducible Work guides."
   },
   {
     "objectID": "math-camp/index.html",
@@ -77,52 +105,24 @@
     "text": "Schedule\n\n\n\nModule\nDate\nTopic\n\n\n\n\n1\nMon Aug 3\nAlgebra & functions\n\n\n2\nTue Aug 4\nLimits, continuity & derivatives\n\n\n3\nWed Aug 5\nOptimization & the firm\n\n\n4\nThu Aug 6\nIntegration\n\n\n5\nFri Aug 7\nMatrix algebra\n\n\n6\nMon Aug 10\nMultivariable & constrained optimization\n\n\n7\nTue Aug 11\nProbability & random variables\n\n\n8\nWed Aug 12\nExpectation, variance & moments\n\n\n9\nThu Aug 13\nCovariance, correlation & distributions\n\n\n10\nFri Aug 14\nSampling distributions, LLN & CLT\n\n\n\nModules 7–10 run theory in the morning and computing in the afternoon; the afternoon decks and the R half of each problem set come from the Workflow & Coding track."
   },
   {
-    "objectID": "math-camp/mathematics.html",
-    "href": "math-camp/mathematics.html",
-    "title": "Mathematics",
+    "objectID": "guides/git-workflow.html",
+    "href": "guides/git-workflow.html",
+    "title": "Git & Reproducible Work",
     "section": "",
-    "text": "Six one-day modules. The notes are the primary resource; the slides cover the same material in compact form. Work the problem set before checking any answers — each module’s solutions appear in the table after 4:00 p.m. the following day.\n\n\n\nModule\nDate\nTopic\nNotes\nSlides\nProblem set\nSolutions\n\n\n\n\n1\nAug 3\nAlgebra & functions\nPDF\nPDF\nPDF\nPDF\n\n\n2\nAug 4\nLimits, continuity & derivatives\nPDF\nPDF\nPDF\nPDF\n\n\n3\nAug 5\nOptimization & the firm\nPDF\nPDF\nPDF\nAug 6, after 4 p.m.\n\n\n4\nAug 6\nIntegration\nPDF\nPDF\nPDF\nAug 7, after 4 p.m.\n\n\n5\nAug 7\nMatrix algebra\nPDF\nPDF\nPDF\nAug 8, after 4 p.m.\n\n\n6\nAug 10\nMultivariable & constrained optimization\nPDF\nPDF\nPDF\nAug 11, after 4 p.m.\n\n\n\n\n\n\n\n\n\nNoteHow to use these modules\n\n\n\nWork the modules in order — each builds on the previous. Give every problem an honest attempt before looking anything up. Complete all modules before the fall semester starts."
+    "text": "Every project in the sequence is a Git repository with a replication-package structure: raw data in one place, numbered scripts that run start to finish, and outputs that regenerate from code.\nStart here:\n\nW6 — Git and GitHub — the version-control workflow we use\nW4 — Ways of working — how the pieces fit together day to day\nW5 — Project setup — the folder structure every project follows"
   },
   {
-    "objectID": "math-camp/workflow.html",
-    "href": "math-camp/workflow.html",
-    "title": "Workflow & Coding",
+    "objectID": "courses/eval.html",
+    "href": "courses/eval.html",
+    "title": "P762 — Public Program Evaluation",
     "section": "",
-    "text": "The computing toolkit for the PhD sequence: R the way we use it, project organization, and version control. W2–W5 are the afternoon sessions of August 11–14, each paired with a problem set on the Probability & Statistics page. W1 and W6 are yours to work through on your own — do W1 early, before camp starts, so your machine is ready.\n\n\n\nDeck\nTopic\nWhen\nSlides\n\n\n\n\nW1\nR the O’Neill way\nBefore camp\nHTML\n\n\nW2\nR basics\nTue Aug 11 p.m.\nHTML\n\n\nW3\ndata.table\nWed Aug 12 p.m.\nHTML\n\n\nW4\nWays of working\nThu Aug 13 p.m.\nHTML\n\n\nW5\nProject setup\nFri Aug 14 p.m.\nHTML\n\n\nW6\nGit and GitHub\nAnytime\nHTML\n\n\n\nSee also the Computing Setup and Git & Reproducible Work guides."
+    "text": "🚧\n  This page is under construction.\n  ← Back to the hub"
   },
   {
-    "objectID": "courses/v707.html",
-    "href": "courses/v707.html",
-    "title": "V707 — Statistics for Research in Public Affairs II",
+    "objectID": "courses/micro.html",
+    "href": "courses/micro.html",
+    "title": "P710 — Microeconomics for Public Policy",
     "section": "",
-    "text": "🚧\n  This page is under construction. Materials arrive when the course runs (spring semester).\n  ← Back to the hub"
-  },
-  {
-    "objectID": "courses/v706.html",
-    "href": "courses/v706.html",
-    "title": "V706 — Statistics for Research in Public Affairs I",
-    "section": "",
-    "text": "Lecture slides, lab materials, and assignments appear here week by week during the fall semester."
-  },
-  {
-    "objectID": "courses/v706.html#lectures",
-    "href": "courses/v706.html#lectures",
-    "title": "V706 — Statistics for Research in Public Affairs I",
-    "section": "Lectures",
-    "text": "Lectures\nMaterials link here as they are released.\n\n\n\nWeek\nTopic\nSlides\n\n\n\n\n1\nOverview of econometrics\n—\n\n\n2\nProbability theory and random variables\n—\n\n\n3\nConditional expectation functions\n—\n\n\n4\nLinear projections and linear models of the CEF\n—\n\n\n5\nRandom sampling and estimation\n—\n\n\n…"
-  },
-  {
-    "objectID": "guides/index.html",
-    "href": "guides/index.html",
-    "title": "Guides",
-    "section": "",
-    "text": "Standing references for the PhD — not tied to any one course.\n\n\n\nGuide\nStatus\n\n\n\n\nComputing Setup\nAvailable\n\n\nGit & Reproducible Work\nAvailable\n\n\nThriving in Year One\nUnder construction\n\n\nResearch & Writing Tips\nUnder construction"
-  },
-  {
-    "objectID": "guides/computing-setup.html",
-    "href": "guides/computing-setup.html",
-    "title": "Computing Setup",
-    "section": "",
-    "text": "Everything in the sequence runs on the same toolkit. Install these before Math Camp ends; the decks below walk through each piece.\n\n\n\nStep\nTool\nWhere\n\n\n\n\n1\nR\ncran.r-project.org\n\n\n2\nRStudio\nposit.co/download/rstudio-desktop\n\n\n3\nQuarto\nquarto.org/docs/get-started\n\n\n4\nLaTeX (TeX Live / MacTeX)\ntug.org/texlive\n\n\n5\nGit\ngit-scm.com/downloads\n\n\n\nFor the full walkthrough — including how we organize projects and which R packages to install — see:\n\nW1 — R the O’Neill way\nW5 — Project setup"
+    "text": "🚧\n  This page is under construction.\n  ← Back to the hub"
   }
 ]
