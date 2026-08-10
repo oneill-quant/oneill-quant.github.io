@@ -1068,19 +1068,16 @@ Coady Wing
 <section id="the-plan" class="slide level2">
 <h2>The Plan</h2>
 <ul>
-<li>The same analysis can be run four ways, from throwaway to fully reproducible</li>
-<li>We walk up the ladder: console, one big script, notebook, a <code>main.r</code> pipeline</li>
-<li>Each rung buys something and costs something</li>
-<li>The goal: know which one to use, and land on the pipeline for real research</li>
+<li>The same analysis can be run four ways</li>
+<li>From the console, one big script, notebook, to a <code>main.r</code> pipeline</li>
+<li>Each way has its own strengths and weaknesses</li>
 </ul>
 </section>
-<section id="the-question-behind-all-four" class="slide level2">
-<h2>The Question Behind All Four</h2>
+<section id="reproducibility-is-an-important-goal" class="slide level2">
+<h2>Reproducibility is an important goal</h2>
 <ul>
 <li>Could someone else reproduce this result from scratch? Could you, a year from now?</li>
 <li>Reproducible means: fresh session, run the code, get the identical numbers</li>
-<li>The four ways differ mainly in how well they survive that test</li>
-<li>Keep that question in mind as we climb</li>
 </ul>
 </section>
 <section id="way-1-the-console" class="slide level2">
@@ -1093,7 +1090,6 @@ Coady Wing
 <li>Great for exploring — poke at the data, test an idea, check a value</li>
 <li>Nothing is saved. Close RStudio and the steps are gone</li>
 <li>You cannot reproduce what you did, because there is no record of it</li>
-<li>Fine for scratch work, never the home for an analysis</li>
 </ul>
 </section>
 <section id="way-2-one-big-script" class="slide level2">
@@ -1106,9 +1102,7 @@ Coady Wing
 <span id="cb2-5"><a href></a>est <span class="ot">&lt;-</span> <span class="fu">feols</span>(lwage <span class="sc">~</span> educ <span class="sc">+</span> exper, <span class="at">data =</span> dt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Now it is saved, ordered, and rerunnable. A real step up from the console</li>
-<li>It grows. At 500 lines you cannot find anything</li>
-<li>You cannot cleanly rerun just the estimation without the cleaning above it</li>
-<li>Objects pile up in memory; state from earlier runs leaks into later ones</li>
+<li>It grows. At 500 lines you cannot find anything and is hard to debug</li>
 </ul>
 </section>
 <section id="way-3-notebooks" class="slide level2">
@@ -1126,17 +1120,16 @@ Coady Wing
 <span id="cb3-10"><a href></a>The coefficient on <span class="in">`educ`</span> is about 0.08.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Code, its output, and your writing live in one document that renders to HTML or PDF</li>
-<li>Ideal for reports, teaching, and anything a human needs to <em>read</em> alongside results</li>
-<li>These very slides are a notebook</li>
+<li>Seems Ideal for reports, teaching, and anything a human needs to <em>read</em> alongside results</li>
+<li>These slides are a notebook</li>
 </ul>
 </section>
 <section id="notebooks-the-fine-print" class="slide level2">
 <h2>Notebooks: The Fine Print</h2>
 <ul>
 <li><strong>Hidden state</strong>: you can run cells out of order and get numbers your saved file can’t reproduce</li>
-<li>Always test with <strong>Render</strong> (or <em>Restart R and Run All</em>) — that runs top to bottom, clean</li>
 <li>Awkward as the home for a big multi-stage pipeline: one giant document gets unwieldy</li>
-<li>Best use: the <em>communication</em> layer that sits on top of a pipeline</li>
+<li>Best use: a <em>communication</em> layer that sits on top of a pipeline</li>
 </ul>
 </section>
 <section id="way-4-main.r-numbered-scripts" class="slide level2">
@@ -1154,20 +1147,19 @@ Coady Wing
 <ul>
 <li>Each numbered script has one responsibility and a header saying its input and output</li>
 <li><code>main.r</code> is the recipe: run it in a fresh session and the whole analysis rebuilds</li>
-<li>This is the research standard, and what this course uses</li>
+<li>This is the research standard</li>
 </ul>
 </section>
 <section id="why-the-pipeline-wins-for-research" class="slide level2">
 <h2>Why the Pipeline Wins for Research</h2>
 <ul>
 <li><strong>One job per script</strong> means you can find and fix the cleaning without touching estimation</li>
-<li><strong>Numbered order</strong> makes the flow of data obvious: 01 feeds 02 feeds 03</li>
-<li><strong>Fresh-session reproducibility</strong> is the whole point — no leftover objects, no hidden state</li>
-<li><strong><code>source()</code> from <code>main.r</code></strong> is the single button that rebuilds every number in the paper</li>
+<li><strong>Numbered order</strong> is optional but makes the flow of data obvious: 01 feeds 02 feeds 03</li>
+<li>** <code>main.r</code>** builds and rebuilds every number in the paper</li>
 </ul>
 </section>
-<section id="the-four-side-by-side" class="slide level2 scrollable">
-<h2>The Four, Side by Side</h2>
+<section id="the-four-styles" class="slide level2 scrollable">
+<h2>The Four Styles</h2>
 <table class="caption-top">
 <colgroup>
 <col style="width: 14%">
@@ -1218,25 +1210,6 @@ Coady Wing
 </table>
 <ul>
 <li>Way 4 is the destination for analysis. Way 3 is how you present it</li>
-</ul>
-</section>
-<section id="they-work-together" class="slide level2">
-<h2>They Work Together</h2>
-<ul>
-<li>These are not rivals. A real project uses several at once</li>
-<li><strong>Console</strong> to explore and debug a stubborn line</li>
-<li><strong>Pipeline</strong> (<code>main.r</code> + numbered scripts) to <em>produce</em> every result</li>
-<li><strong>Notebook</strong> to <em>write up</em> the results for a reader, sourcing the pipeline’s output</li>
-<li>The skill is matching the tool to the moment</li>
-</ul>
-</section>
-<section id="recap" class="slide level2">
-<h2>Recap</h2>
-<ul>
-<li>Four ways up a ladder: console → one script → notebook → <code>main.r</code> pipeline</li>
-<li>The test that separates them: can a fresh session reproduce the result?</li>
-<li>Use the <strong>pipeline</strong> to produce research, <strong>notebooks</strong> to communicate it</li>
-<li>Next: how to lay out the project folder that the pipeline lives in (W5)</li>
 </ul>
 
 </section>

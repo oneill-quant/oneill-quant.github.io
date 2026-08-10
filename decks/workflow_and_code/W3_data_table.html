@@ -1068,11 +1068,11 @@ Coady Wing
 <section id="the-plan" class="slide level2">
 <h2>The Plan</h2>
 <ul>
-<li>One mental model, <code>dt[i, j, by]</code>, that covers most of what we do to data</li>
+<li>Introduction to the <code>data.table</code> package: great for large datasets and also very convenient syntax.</li>
 <li>Read a file, filter rows, compute columns, summarize by group</li>
-<li>Create columns by reference with <code>:=</code>, and understand what “by reference” costs</li>
 <li>Reshape between wide and long, and merge two tables</li>
-<li>This is the deck you will come back to all semester</li>
+<li>Create columns by reference with <code>:=</code>, and understand what “by reference” costs</li>
+<li>Basic syntax: <code>dt[i, j, by]</code> with three slots.</li>
 </ul>
 </section>
 <section id="one-model-to-remember" class="slide level2">
@@ -1085,12 +1085,9 @@ Coady Wing
 <li><strong><code>by</code></strong> — split into <em>groups</em> first, then do <code>j</code> within each</li>
 </ul>
 <p>Read it in English: <strong>“take rows <code>i</code>, do <code>j</code>, grouped by <code>by</code>.”</strong></p>
-<ul>
-<li>Most slides today are just one slot at a time. The grammar never changes</li>
-</ul>
 </section>
-<section id="getting-data-in" class="slide level2">
-<h2>Getting Data In</h2>
+<section id="reading-data-into-a-data.table-object." class="slide level2">
+<h2>Reading data into a data.table object.</h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(data.table, wooldridge, here)</span>
 <span id="cb2-2"><a href></a></span>
 <span id="cb2-3"><a href></a><span class="co"># from a file on disk; here() finds the root</span></span>
@@ -1111,11 +1108,6 @@ Coady Wing
 <span id="cb3-2"><a href></a><span class="fu">str</span>(dt)     <span class="co"># column names and types</span></span>
 <span id="cb3-3"><a href></a><span class="fu">nrow</span>(dt)    <span class="co"># how many rows</span></span>
 <span id="cb3-4"><a href></a><span class="fu">names</span>(dt)   <span class="co"># the column names</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>Always look at a table before you trust it</li>
-<li>Confirm the row count and types match what you expected from the file</li>
-<li>Catch a surprise now (half the rows gone, a column read as text) rather than ten steps later</li>
-</ul>
 </section>
 <section id="i-filter-rows" class="slide level2">
 <h2><code>i</code> — Filter Rows</h2>
@@ -1151,15 +1143,10 @@ Coady Wing
 <span id="cb6-4"><a href></a><span class="co"># count and average by two grouping variables</span></span>
 <span id="cb6-5"><a href></a>dt[, .(<span class="at">n =</span> .N, <span class="at">avg_wage =</span> <span class="fu">mean</span>(wage)),</span>
 <span id="cb6-6"><a href></a>   by <span class="ot">=</span> .(female, married)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>This is the split-apply-combine pattern: split by <code>by</code>, apply <code>j</code>, stack the results</li>
-<li>Group by one variable with <code>by = educ</code>, by several with <code>by = .(female, married)</code></li>
-<li>The output has one row per group. This is how most tables in your papers start</li>
-</ul>
 </section>
 <section id="chaining" class="slide level2">
 <h2>Chaining</h2>
-<p>Answer a multi-step question by stacking brackets left to right.</p>
+<p>Answer a multi-step question by chaining brackets left to right.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href></a><span class="co"># married only; mean wage by education,</span></span>
 <span id="cb7-2"><a href></a><span class="co"># then sorted high to low</span></span>
 <span id="cb7-3"><a href></a>dt[married <span class="sc">==</span> <span class="dv">1</span></span>
@@ -1191,68 +1178,12 @@ Coady Wing
 <li><code>:=</code> changes the table <strong>in place</strong>. No copy is made</li>
 <li>That is why it is fast on large data — but it means the change sticks</li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href></a><span class="co"># every later line sees the rescaled wage</span></span>
-<span id="cb9-2"><a href></a>dt[, wage <span class="sc">:</span><span class="er">=</span> wage <span class="sc">/</span> <span class="dv">1000</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>If you run that cell twice, you divide by 1000 twice. The bug is silent</li>
-<li>Rule: keep each transform in your script, run top to bottom from a fresh session</li>
-<li>Do not lean on the interactive state of your workspace to keep a table correct</li>
-</ul>
-</section>
-<section id="recoding-with-fifelse" class="slide level2">
-<h2>Recoding with <code>fifelse</code></h2>
-<p>A common job: build one categorical column from several dummies.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href></a><span class="co"># build one label from exclusive dummies</span></span>
-<span id="cb10-2"><a href></a>dt[, race_eth <span class="sc">:</span><span class="er">=</span></span>
-<span id="cb10-3"><a href></a>     <span class="fu">fifelse</span>(black <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;Black&quot;</span>,</span>
-<span id="cb10-4"><a href></a>     <span class="fu">fifelse</span>(white <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;White&quot;</span>,</span>
-<span id="cb10-5"><a href></a>     <span class="fu">fifelse</span>(hispanic <span class="sc">==</span> <span class="dv">1</span>, <span class="st">&quot;Hispanic&quot;</span>,</span>
-<span id="cb10-6"><a href></a>             <span class="st">&quot;Other&quot;</span>)))]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li><code>fifelse(test, yes, no)</code> is a fast, type-safe vectorized if-else</li>
-<li>Nest it to walk through cases in order, with a fallback at the end</li>
-<li><code>fifelse</code> keeps types straight where base <code>ifelse</code> sometimes mangles them</li>
-</ul>
-</section>
-<section id="weighted-summaries" class="slide level2">
-<h2>Weighted Summaries</h2>
-<p>Survey data comes with weights. Respect them.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href></a><span class="co"># weighted share Hispanic in 2010</span></span>
-<span id="cb11-2"><a href></a>dt[year <span class="sc">==</span> <span class="dv">2010</span>,</span>
-<span id="cb11-3"><a href></a>   <span class="fu">weighted.mean</span>(hispanic, <span class="at">w =</span> analwt_c)]</span>
-<span id="cb11-4"><a href></a></span>
-<span id="cb11-5"><a href></a><span class="co"># weighted mean by year and education</span></span>
-<span id="cb11-6"><a href></a>dt[, .(<span class="at">rate =</span> <span class="fu">weighted.mean</span>(opioid_use,</span>
-<span id="cb11-7"><a href></a>                            <span class="at">w =</span> analwt_c)),</span>
-<span id="cb11-8"><a href></a>   by <span class="ot">=</span> .(year, education)]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li><code>weighted.mean(x, w)</code> is the weighted analog of <code>mean(x)</code></li>
-<li>Filtering (<code>year == 2010</code>) and grouping (<code>by = ...</code>) compose with it cleanly</li>
-<li>With survey weights, an unweighted mean answers a different question than you asked</li>
-</ul>
-</section>
-<section id="counts-to-a-wide-table" class="slide level2">
-<h2>Counts to a Wide Table</h2>
-<p>Count rows per cell, then spread one variable across columns.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href></a><span class="co"># count respondents with/without kids by year</span></span>
-<span id="cb12-2"><a href></a>kids <span class="ot">&lt;-</span> dt[, .N, by <span class="ot">=</span> .(year, has_kids)]</span>
-<span id="cb12-3"><a href></a></span>
-<span id="cb12-4"><a href></a><span class="co"># spread has_kids (0/1) into two columns</span></span>
-<span id="cb12-5"><a href></a>kids_wide <span class="ot">&lt;-</span> <span class="fu">dcast</span>(kids, year <span class="sc">~</span> has_kids,</span>
-<span id="cb12-6"><a href></a>                   <span class="at">value.var =</span> <span class="st">&quot;N&quot;</span>, <span class="at">fill =</span> <span class="dv">0</span>)</span>
-<span id="cb12-7"><a href></a><span class="fu">setnames</span>(kids_wide,</span>
-<span id="cb12-8"><a href></a>         <span class="fu">c</span>(<span class="st">&quot;year&quot;</span>, <span class="st">&quot;no_kids&quot;</span>, <span class="st">&quot;with_kids&quot;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li><code>.N</code> by group gives the counts; <code>dcast</code> turns the 0/1 into named columns</li>
-<li><code>setnames()</code> renames columns after the fact, clearer than cryptic <code>0</code> / <code>1</code> headers</li>
-</ul>
 </section>
 <section id="reshaping-long-vs.-wide" class="slide level2">
 <h2>Reshaping: Long vs. Wide</h2>
 <ul>
-<li><strong>Long</strong>: one row per observation-per-variable. Good for plotting and grouped math</li>
-<li><strong>Wide</strong>: one row per unit, variables spread across columns. Good for reading and merging</li>
-<li>You will constantly move between the two. Two functions do it:</li>
+<li><strong>Long</strong>: one row per observation-per-variable.</li>
+<li><strong>Wide</strong>: one row per unit, variables spread across columns.</li>
 </ul>
 <table class="caption-top">
 <thead>
@@ -1275,18 +1206,18 @@ Coady Wing
 </section>
 <section id="melt-and-dcast-on-a-toy-panel" class="slide level2">
 <h2><code>melt</code> and <code>dcast</code> on a Toy Panel</h2>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href></a><span class="co"># wide: one row per person, a column per year</span></span>
-<span id="cb13-2"><a href></a>wide <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
-<span id="cb13-3"><a href></a>                   <span class="at">y2019 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>),</span>
-<span id="cb13-4"><a href></a>                   <span class="at">y2020 =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">22</span>))</span>
-<span id="cb13-5"><a href></a></span>
-<span id="cb13-6"><a href></a><span class="co"># wide -&gt; long: stack the year columns into rows</span></span>
-<span id="cb13-7"><a href></a>long <span class="ot">&lt;-</span> <span class="fu">melt</span>(wide, <span class="at">id.vars =</span> <span class="st">&quot;id&quot;</span>,</span>
-<span id="cb13-8"><a href></a>             <span class="at">variable.name =</span> <span class="st">&quot;year&quot;</span>,</span>
-<span id="cb13-9"><a href></a>             <span class="at">value.name =</span> <span class="st">&quot;y&quot;</span>)</span>
-<span id="cb13-10"><a href></a></span>
-<span id="cb13-11"><a href></a><span class="co"># long -&gt; wide: spread them back out</span></span>
-<span id="cb13-12"><a href></a>back <span class="ot">&lt;-</span> <span class="fu">dcast</span>(long, id <span class="sc">~</span> year, <span class="at">value.var =</span> <span class="st">&quot;y&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href></a><span class="co"># wide: one row per person, a column per year</span></span>
+<span id="cb9-2"><a href></a>wide <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb9-3"><a href></a>                   <span class="at">y2019 =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>),</span>
+<span id="cb9-4"><a href></a>                   <span class="at">y2020 =</span> <span class="fu">c</span>(<span class="dv">11</span>, <span class="dv">22</span>))</span>
+<span id="cb9-5"><a href></a></span>
+<span id="cb9-6"><a href></a><span class="co"># wide -&gt; long: stack the year columns into rows</span></span>
+<span id="cb9-7"><a href></a>long <span class="ot">&lt;-</span> <span class="fu">melt</span>(wide, <span class="at">id.vars =</span> <span class="st">&quot;id&quot;</span>,</span>
+<span id="cb9-8"><a href></a>             <span class="at">variable.name =</span> <span class="st">&quot;year&quot;</span>,</span>
+<span id="cb9-9"><a href></a>             <span class="at">value.name =</span> <span class="st">&quot;y&quot;</span>)</span>
+<span id="cb9-10"><a href></a></span>
+<span id="cb9-11"><a href></a><span class="co"># long -&gt; wide: spread them back out</span></span>
+<span id="cb9-12"><a href></a>back <span class="ot">&lt;-</span> <span class="fu">dcast</span>(long, id <span class="sc">~</span> year, <span class="at">value.var =</span> <span class="st">&quot;y&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>melt</code>: name the columns that <em>stay</em> (<code>id.vars</code>); the rest get stacked</li>
 <li><code>dcast</code>: <code>id ~ year</code> means “rows are <code>id</code>, columns come from <code>year</code>”</li>
@@ -1295,26 +1226,26 @@ Coady Wing
 <section id="merging-two-tables" class="slide level2">
 <h2>Merging Two Tables</h2>
 <p>Join a second table onto the first by a shared key.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href></a><span class="co"># people: one row per person + a state code</span></span>
-<span id="cb14-2"><a href></a><span class="co"># states: one row per state + a policy var</span></span>
-<span id="cb14-3"><a href></a></span>
-<span id="cb14-4"><a href></a>merged <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> people, <span class="at">y =</span> states,</span>
-<span id="cb14-5"><a href></a>                <span class="at">by =</span> <span class="st">&quot;state&quot;</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href></a><span class="co"># people: one row per person + a state code</span></span>
+<span id="cb10-2"><a href></a><span class="co"># states: one row per state + a policy var</span></span>
+<span id="cb10-3"><a href></a></span>
+<span id="cb10-4"><a href></a>merged <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> people, <span class="at">y =</span> states,</span>
+<span id="cb10-5"><a href></a>                <span class="at">by =</span> <span class="st">&quot;state&quot;</span>, <span class="at">all.x =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Always name <code>x =</code> and <code>y =</code> so the join direction is unambiguous</li>
 <li><code>by =</code> is the key column both tables share</li>
 <li><code>all.x = TRUE</code> keeps every row of <code>x</code> even when <code>y</code> has no match (a left join)</li>
-<li>Check <code>nrow()</code> before and after — a merge that multiplies rows is a duplicated key</li>
+<li>Check <code>nrow()</code> before and after</li>
 </ul>
 </section>
 <section id="sd-the-groups-sub-table" class="slide level2">
 <h2><code>.SD</code>: The Group’s Sub-Table</h2>
 <p>When you want to apply the same operation to many columns, <code>.SD</code> is the group’s data.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href></a>cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;wage&quot;</span>, <span class="st">&quot;educ&quot;</span>, <span class="st">&quot;exper&quot;</span>)</span>
-<span id="cb15-2"><a href></a></span>
-<span id="cb15-3"><a href></a><span class="co"># mean of several columns at once, by group</span></span>
-<span id="cb15-4"><a href></a>dt[, <span class="fu">lapply</span>(.SD, mean),</span>
-<span id="cb15-5"><a href></a>   by <span class="ot">=</span> female, .SDcols <span class="ot">=</span> cols]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href></a>cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;wage&quot;</span>, <span class="st">&quot;educ&quot;</span>, <span class="st">&quot;exper&quot;</span>)</span>
+<span id="cb11-2"><a href></a></span>
+<span id="cb11-3"><a href></a><span class="co"># mean of several columns at once, by group</span></span>
+<span id="cb11-4"><a href></a>dt[, <span class="fu">lapply</span>(.SD, mean),</span>
+<span id="cb11-5"><a href></a>   by <span class="ot">=</span> female, .SDcols <span class="ot">=</span> cols]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>.SD</code> = “Subset of the Data” — the current group’s rows, as a table</li>
 <li><code>.SDcols</code> limits it to the columns you name</li>
@@ -1326,10 +1257,8 @@ Coady Wing
 <h2>Recap</h2>
 <ul>
 <li>One grammar: <code>dt[i, j, by]</code> — rows, then compute, then within groups</li>
-<li><code>.()</code> returns a new table; <code>:=</code> edits in place by reference, so watch for double-runs</li>
-<li><code>fifelse</code> recodes, <code>weighted.mean</code> respects survey weights, <code>.N</code> counts</li>
-<li><code>melt</code>/<code>dcast</code> reshape; <code>merge(x=, y=, by=, all.x=)</code> joins — check row counts after</li>
-<li>This is the engine for every assignment. Next: how to organize the code that uses it (W4)</li>
+<li><code>:=</code> edits in place by reference, so watch for double-runs</li>
+<li><code>melt</code>/<code>dcast</code> reshape; <code>merge(x=, y=, by=, all.x=)</code> joins</li>
 </ul>
 
 </section>

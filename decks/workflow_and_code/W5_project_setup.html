@@ -1072,25 +1072,22 @@ Coady Wing
 <li>The self-contained folder, anchored by one <code>.Rproj</code>, that makes <code>here()</code> work</li>
 <li>Standard subfolders, and why raw data is read-only</li>
 <li>Two ways to start a project: by hand, or from a template</li>
-<li>This course repo is the running example</li>
 </ul>
 </section>
 <section id="the-standard-youre-aiming-for" class="slide level2">
 <h2>The Standard You’re Aiming For</h2>
 <ul>
 <li><strong>Every number, table, and figure in your paper is produced by code you can rerun</strong></li>
-<li>No hand-copied numbers, no “I tweaked that in Excel,” no orphaned figures</li>
+<li>No hand-copied numbers, no “I tweaked that in Excel,”</li>
 <li>If a reviewer asks where Table 3 came from, you can point at the exact script</li>
-<li>Project structure is what makes that standard practical instead of aspirational</li>
 </ul>
 </section>
 <section id="one-folder-self-contained" class="slide level2">
 <h2>One Folder, Self-Contained</h2>
 <ul>
 <li>A project is a single folder that holds everything the analysis needs</li>
-<li>Code, data, output, and writing all live <em>inside</em> it, in known places</li>
+<li>Code, data, output, and writing all live <em>inside</em> it</li>
 <li>Move the folder to another machine and it still runs — nothing points outside it</li>
-<li>That self-containment is what lets someone else reproduce your work</li>
 </ul>
 </section>
 <section id="the-anchor-.rproj" class="slide level2">
@@ -1104,7 +1101,7 @@ Coady Wing
 <span id="cb1-2"><a href></a>dt <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="fu">here</span>(<span class="st">&quot;raw_data&quot;</span>, <span class="st">&quot;nsduh.csv&quot;</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>This is why we never write <code>setwd()</code>. The <code>.Rproj</code> sets the location for you</li>
-<li>Double-click <code>project.Rproj</code> to open the project; that is the whole ritual</li>
+<li>Double-click <code>project.Rproj</code> to open the project</li>
 </ul>
 </section>
 <section id="a-standard-layout" class="slide level2">
@@ -1120,7 +1117,6 @@ Coady Wing
 <ul>
 <li>Same skeleton every time, so you always know where a thing lives</li>
 <li>New collaborator or RA opens the folder and is oriented in a minute</li>
-<li>The names are conventions, not law — but pick a convention and keep it</li>
 </ul>
 </section>
 <section id="raw-data-is-sacred" class="slide level2">
@@ -1129,7 +1125,6 @@ Coady Wing
 <li><code>raw_data/</code> holds the original files exactly as they arrived. You never edit them</li>
 <li>No opening the CSV in Excel to “fix” a value. No hand-deleting rows</li>
 <li>Every correction happens <strong>in code</strong>, reading from raw and writing elsewhere</li>
-<li>Two reasons: the fix is now documented and repeatable, and the original is always recoverable</li>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href></a><span class="co"># read from raw; never write back to it</span></span>
 <span id="cb3-2"><a href></a>raw <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="fu">here</span>(<span class="st">&quot;raw_data&quot;</span>, <span class="st">&quot;nsduh.csv&quot;</span>))</span>
@@ -1150,10 +1145,6 @@ Coady Wing
 <span id="cb4-7"><a href></a><span class="fu">source</span>(<span class="fu">here</span>(<span class="st">&quot;code&quot;</span>, <span class="st">&quot;04_figures.r&quot;</span>))</span>
 <span id="cb4-8"><a href></a></span>
 <span id="cb4-9"><a href></a><span class="fu">message</span>(<span class="st">&quot;main.r complete&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>Data flows down the folders: raw → temp → outputs</li>
-<li>One command rebuilds every table and figure from the untouched raw data</li>
-</ul>
 </section>
 <section id="method-1-build-it-by-hand" class="slide level2 scrollable">
 <h2>Method 1: Build It by Hand</h2>
@@ -1164,9 +1155,6 @@ Coady Wing
 <li>Add a <code>main.r</code> stub in <code>code/</code> and a <code>README.md</code> at the root</li>
 <li>Drop your data into <code>raw_data/</code> and start writing <code>01_clean_data.r</code></li>
 </ol>
-<ul>
-<li>Fine for a one-off. Tedious when you start your third project and rebuild it all again</li>
-</ul>
 </section>
 <section id="method-2-start-from-a-template" class="slide level2">
 <h2>Method 2: Start from a Template</h2>
@@ -1175,15 +1163,6 @@ Coady Wing
 <li>On GitHub: click <strong>“Use this template”</strong> to create your own copy, then clone it</li>
 <li>You get the folders, a <code>main.r</code> stub, a <code>.gitignore</code>, and a <code>README</code> on day one</li>
 <li>Every project starts identical, so the structure is never something you forget to set up</li>
-</ul>
-</section>
-<section id="why-a-template-pays-off" class="slide level2">
-<h2>Why a Template Pays Off</h2>
-<ul>
-<li><strong>Consistency</strong>: your projects all look the same, so moving between them is frictionless</li>
-<li><strong>Onboarding</strong>: a new RA already knows the layout because every project shares it</li>
-<li><strong>Nothing forgotten</strong>: the <code>.gitignore</code> and folder structure come for free, correct from the start</li>
-<li>Set the skeleton up well once; reuse it for years</li>
 </ul>
 </section>
 <section id="the-.gitignore" class="slide level2">
@@ -1207,16 +1186,6 @@ temp_data/
 <li>Intermediate files and figures regenerate from code, so there is no reason to version them</li>
 </ul>
 </section>
-<section id="this-repo-is-the-example" class="slide level2">
-<h2>This Repo Is the Example</h2>
-<ul>
-<li>The course materials live in exactly this structure — go look</li>
-<li><code>project.Rproj</code> at the root; <code>code/main.r</code> sourcing numbered scripts</li>
-<li><code>raw_data/</code> gitignored, with a README kept so you know what belongs there</li>
-<li><code>slides/</code>, <code>manuscript/</code>, <code>outputs/</code> each holding one kind of thing</li>
-<li>When you are unsure how to lay something out, open this repo and copy the pattern</li>
-</ul>
-</section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <ul>
@@ -1224,7 +1193,6 @@ temp_data/
 <li>Standard subfolders; <strong>raw data is read-only</strong> and every fix lives in code</li>
 <li><code>main.r</code> rebuilds all results from raw data in one run</li>
 <li>Start by hand or from a <strong>template</strong>; <code>.gitignore</code> keeps data and artifacts out of git</li>
-<li>Next: version control, so your project has history and a home in the cloud (W6)</li>
 </ul>
 
 </section>

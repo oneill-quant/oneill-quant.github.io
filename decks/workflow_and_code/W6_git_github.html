@@ -1069,25 +1069,18 @@ Coady Wing
 <h2>The Plan</h2>
 <ul>
 <li>The problem version control solves, and what it buys you</li>
-<li>Git versus GitHub — a local tool and a cloud home for your repo</li>
-<li>One mental model: working directory → staging → commit → remote</li>
 <li>The core loop of edit, stage, commit, and push, shown three ways</li>
 <li>Why a research paper is really a repository</li>
 </ul>
 </section>
 <section id="you-already-have-a-version-control-system" class="slide level2">
 <h2>You Already Have a Version Control System</h2>
-<p>You have used one. It looks like this:</p>
+<p>You may have used one that looks like:</p>
 <pre><code>analysis.R
 analysis_v2.R
 analysis_final.R
 analysis_final_FINAL.R
 analysis_final_revised(3).R</code></pre>
-<ul>
-<li>Which one is current? Which change is in which file? What did <code>v2</code> fix?</li>
-<li>It does not scale, and it loses history the moment you overwrite a file</li>
-<li>Git is the tool built to do this job properly</li>
-</ul>
 </section>
 <section id="what-version-control-buys-you" class="slide level2">
 <h2>What Version Control Buys You</h2>
@@ -1095,8 +1088,7 @@ analysis_final_revised(3).R</code></pre>
 <li><strong>History</strong> — every saved version is kept, with a note on what changed and when</li>
 <li><strong>Undo</strong> — roll back to any past state when today’s idea turns out worse</li>
 <li><strong>Collaboration</strong> — several people edit the same project without clobbering each other</li>
-<li><strong>Backup</strong> — pushed to the cloud, your work survives a dead laptop</li>
-<li>One system, and the <code>_FINAL_revised(3)</code> file names disappear</li>
+<li><strong>Backup</strong> — pushed to the cloud</li>
 </ul>
 </section>
 <section id="git-vs.-github" class="slide level2">
@@ -1126,7 +1118,6 @@ analysis_final_revised(3).R</code></pre>
 <ul>
 <li><strong>Git</strong> does the tracking, locally, with or without the internet</li>
 <li><strong>GitHub</strong> is a place to store a copy, share it, and collaborate</li>
-<li>GitLab and Bitbucket play the same role as GitHub. The tool underneath is git either way</li>
 </ul>
 </section>
 <section id="the-mental-model" class="slide level2">
@@ -1159,10 +1150,6 @@ analysis_final_revised(3).R</code></pre>
 <li><strong>Commit</strong> — snapshot them, with a message</li>
 <li><strong>Push</strong> — send the commits up to GitHub</li>
 </ol>
-<ul>
-<li>Repeat this many times a day</li>
-<li>The same four steps whether you type commands or click buttons</li>
-</ul>
 </section>
 <section id="writing-a-good-message" class="slide level2">
 <h2>Writing a Good Message</h2>
@@ -1172,9 +1159,7 @@ analysis_final_revised(3).R</code></pre>
 <li>Present tense, one line, specific enough to skim in a list six months on</li>
 </ul>
 <pre><code>Good:  Add robust SEs to the wage regression
-Good:  Fix year filter that dropped 2010
-Bad:   updates
-Bad:   asdf</code></pre>
+Bad:   updates</code></pre>
 </section>
 <section id="three-ways-to-run-the-loop" class="slide level2 center">
 <h2>Three Ways to Run the Loop</h2>
@@ -1189,7 +1174,6 @@ Bad:   asdf</code></pre>
 <ul>
 <li><code>git status</code> shows what is staged, changed, or untracked — run it constantly</li>
 <li>This is the most direct view of what git is doing, and the most portable</li>
-<li>Worth learning even if you click buttons day to day, because the buttons run these</li>
 </ul>
 </section>
 <section id="way-b-rstudios-git-pane" class="slide level2">
@@ -1201,7 +1185,6 @@ Bad:   asdf</code></pre>
 <li><p>Click <strong>Commit</strong>, type a message in the dialog, confirm</p></li>
 <li><p><strong>Push</strong> and <strong>Pull</strong> are buttons with up/down arrows</p></li>
 <li><p>Same loop, same words (stage, commit, push), just with checkboxes</p></li>
-<li><p>Convenient because it lives right where you already write your code</p></li>
 </ul>
 </section>
 <section id="way-c-github-desktop" class="slide level2">
@@ -1211,7 +1194,6 @@ Bad:   asdf</code></pre>
 <li>Shows your changes as a readable list with the exact lines added and removed</li>
 <li>Type a commit message in a box, click <strong>Commit to main</strong></li>
 <li>One button to <strong>Push origin</strong>, one to <strong>Pull</strong></li>
-<li>Gentlest on-ramp — the diff view makes it obvious what each commit contains</li>
 </ul>
 </section>
 <section id="which-one-should-you-use" class="slide level2">
@@ -1239,8 +1221,7 @@ Bad:   asdf</code></pre>
 </tbody>
 </table>
 <ul>
-<li>Pick one to start. Most people here settle on the RStudio pane</li>
-<li>They all drive the same git underneath, so the mental model carries across</li>
+<li>Pick one to start.</li>
 <li>Learn a little command line eventually — it demystifies the buttons</li>
 </ul>
 </section>
@@ -1250,8 +1231,6 @@ Bad:   asdf</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href></a><span class="fu">git</span> clone https://github.com/you/project.git</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>Cloning downloads the whole project <em>and</em> its full history</li>
-<li>You now have a local repo wired to that GitHub remote, ready to pull and push</li>
-<li>RStudio and GitHub Desktop both clone from a menu, with no command line at all</li>
 </ul>
 </section>
 <section id="pull-before-you-push" class="slide level2">
@@ -1262,10 +1241,6 @@ Bad:   asdf</code></pre>
 </ul>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href></a><span class="fu">git</span> pull      <span class="co"># get their changes, merge them in</span></span>
 <span id="cb6-2"><a href></a><span class="fu">git</span> push      <span class="co"># now send yours</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>Push before pulling and git stops you, because your history is behind the remote’s</li>
-<li>Pull first, resolve any overlap, then push. A habit that avoids most tangles</li>
-</ul>
 </section>
 <section id="what-to-commit-and-what-not-to" class="slide level2">
 <h2>What to Commit, and What Not To</h2>
@@ -1273,7 +1248,6 @@ Bad:   asdf</code></pre>
 <li><strong>Commit</strong>: code, scripts, <code>main.r</code>, the manuscript source, the <code>README</code></li>
 <li><strong>Do not commit</strong>: raw data, large outputs, R artifacts like <code>.Rhistory</code></li>
 <li><code>.gitignore</code> (from W5) lists what to leave out, so it never gets staged by accident</li>
-<li>Rule of thumb: version what you <em>write</em>; leave out what code <em>regenerates</em>, and data that lives elsewhere</li>
 </ul>
 </section>
 <section id="branches-lightly" class="slide level2">
@@ -1287,16 +1261,6 @@ Bad:   asdf</code></pre>
 <span id="cb7-3"><a href></a><span class="fu">git</span> switch main          <span class="co"># main untouched</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>For solo assignments you can live on <code>main</code> and be fine</li>
-<li>Branches earn their keep once you collaborate or run an experiment you might discard</li>
-</ul>
-</section>
-<section id="a-paper-is-a-repository" class="slide level2">
-<h2>A Paper Is a Repository</h2>
-<ul>
-<li>Bring the pieces together: your project folder (W5) becomes a git repo with a home on GitHub</li>
-<li>The manuscript, the code, and <code>main.r</code> are all versioned in one place</li>
-<li>Every result traces to a commit — you can point at the exact snapshot that made Table 3</li>
-<li>Reproducible research and version control are the same discipline seen from two sides</li>
 </ul>
 </section>
 <section id="recap" class="slide level2">
@@ -1304,9 +1268,6 @@ Bad:   asdf</code></pre>
 <ul>
 <li>Git tracks versions locally; GitHub hosts a shared copy in the cloud</li>
 <li>The loop is always <strong>edit → stage → commit → push</strong>, with a message that explains the change</li>
-<li>One model, three interfaces: command line, RStudio’s Git pane, GitHub Desktop</li>
-<li><strong>Pull before you push</strong>; commit code, not data or artifacts</li>
-<li>A paper is a repo, and every number in it traces back to a commit</li>
 </ul>
 
 </section>

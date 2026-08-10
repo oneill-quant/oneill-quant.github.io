@@ -1068,24 +1068,21 @@ Coady Wing
 <section id="the-plan" class="slide level2">
 <h2>The Plan</h2>
 <ul>
-<li>A ground-up tour of R, one small problem at a time</li>
 <li>Objects, vectors, indexing — the raw material everything else is built from</li>
 <li>The two table objects: base <code>data.frame</code> and our workhorse <code>data.table</code></li>
-<li>Functions and loops, and the rule for when to reach for them</li>
-<li>Every idea here shows up as soon as you touch real data</li>
+<li>Functions and loops</li>
 </ul>
 </section>
-<section id="r-and-rstudio-are-two-things" class="slide level2">
-<h2>R and RStudio Are Two Things</h2>
+<section id="r-rstudio-vs-code" class="slide level2">
+<h2>R, RStudio, VS Code</h2>
 <ul>
 <li><strong>R</strong> is the engine — the language that does the computing</li>
-<li><strong>RStudio</strong> is the dashboard you drive it from — editor, console, plots, help</li>
-<li>You install both once. You open RStudio; it talks to R for you</li>
-<li>When code “runs,” it is R doing the work, wherever you typed it</li>
+<li><strong>RStudio</strong> is an integrated development environment (IDE) you drive it from — editor, console, plots, help</li>
+<li><strong>VS Code</strong> is another IDE that can drive R, also worth a try.</li>
 </ul>
 </section>
-<section id="the-four-panes" class="slide level2 scrollable">
-<h2>The Four Panes</h2>
+<section id="r-studio-the-four-panes" class="slide level2 scrollable">
+<h2>R studio: The Four Panes</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><strong>Source</strong> (top-left)</p>
@@ -1108,9 +1105,6 @@ Coady Wing
 <li>Your folders, your figures, and <code>?help</code> pages</li>
 </ul>
 </div></div>
-<ul>
-<li>Rule of thumb: type experiments in the Console, keep anything worth repeating in the Source pane</li>
-</ul>
 </section>
 <section id="r-as-a-calculator" class="slide level2">
 <h2>R as a Calculator</h2>
@@ -1139,13 +1133,14 @@ Coady Wing
 <span id="cb2-6"><a href></a><span class="co">#&gt; [1] 504000</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><code>&lt;-</code> is the assignment arrow. Read it as “gets”</li>
-<li>We use <code>&lt;-</code>, not <code>=</code>. Keep <code>=</code> for naming arguments inside function calls</li>
-<li>Names are snake_case: <code>hourly_wage</code>, <code>n_kids</code>, <code>is_treated</code></li>
+<li>You can also use <code>=</code> for assignment</li>
+<li>snake_case: <code>hourly_wage</code>, <code>n_kids</code>, <code>is_treated</code></li>
 </ul>
 </section>
-<section id="vectors-many-values-at-once" class="slide level2">
-<h2>Vectors: Many Values at Once</h2>
-<p>The problem: you rarely have one number. You have a column of them.</p>
+<section id="vectors" class="slide level2">
+<h2>Vectors</h2>
+<p>A vector is R’s most basic data object — an ordered run of values of one type</p>
+<p>Most operations work on the whole vector at once: <code>wages * 2</code> doubles every entry</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href></a><span class="co"># c() = &quot;combine&quot; a set of values into a vector</span></span>
 <span id="cb3-2"><a href></a>wages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">31</span>, <span class="dv">44</span>, <span class="dv">60</span>)</span>
 <span id="cb3-3"><a href></a>wages</span>
@@ -1153,10 +1148,6 @@ Coady Wing
 <span id="cb3-5"><a href></a></span>
 <span id="cb3-6"><a href></a><span class="fu">length</span>(wages)</span>
 <span id="cb3-7"><a href></a><span class="co">#&gt; [1] 5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>A vector is R’s most basic data object — an ordered run of values of one type</li>
-<li>Most operations work on the whole vector at once: <code>wages * 2</code> doubles every entry</li>
-</ul>
 </section>
 <section id="vectors-have-a-type" class="slide level2">
 <h2>Vectors Have a Type</h2>
@@ -1169,12 +1160,10 @@ Coady Wing
 <span id="cb4-7"><a href></a><span class="co">#&gt; [1] &quot;character&quot;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>A vector holds one type: all numbers, or all text, or all <code>TRUE</code>/<code>FALSE</code></li>
-<li>Quotes mark text. <code>&quot;1&quot;</code> is the character one; <code>1</code> is the number one</li>
-<li><code>TRUE</code> and <code>FALSE</code> (no quotes) are logical values — they power the filtering we do next</li>
 </ul>
 </section>
-<section id="the-coercion-gotcha" class="slide level2">
-<h2>The Coercion Gotcha</h2>
+<section id="coercion" class="slide level2">
+<h2>Coercion</h2>
 <p>What happens if you mix types in one vector?</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href></a>mixed <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ada&quot;</span>, <span class="dv">1</span>)</span>
 <span id="cb5-2"><a href></a>mixed</span>
@@ -1184,8 +1173,6 @@ Coady Wing
 <ul>
 <li>R refuses to hold two types, so it quietly <strong>coerces</strong> everything to one</li>
 <li>The number <code>1</code> became the text <code>&quot;1&quot;</code> — note the quotes</li>
-<li>This bites when a stray text value turns a whole numeric column into character</li>
-<li>If arithmetic suddenly fails, suspect a coercion like this</li>
 </ul>
 </section>
 <section id="indexing-pull-out-one-piece" class="slide level2">
@@ -1205,7 +1192,7 @@ Coady Wing
 </section>
 <section id="logical-subsetting" class="slide level2">
 <h2>Logical Subsetting</h2>
-<p>The real power: keep the entries that satisfy a condition.</p>
+<p>Keep the entries that satisfy a condition.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href></a>wages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">25</span>, <span class="dv">31</span>, <span class="dv">44</span>, <span class="dv">60</span>)</span>
 <span id="cb7-2"><a href></a></span>
 <span id="cb7-3"><a href></a>wages <span class="sc">&gt;</span> <span class="dv">30</span>         <span class="co"># TRUE/FALSE per entry</span></span>
@@ -1215,21 +1202,19 @@ Coady Wing
 <span id="cb7-7"><a href></a><span class="co">#&gt; [1] 31 44 60</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li>The condition builds a logical vector; the brackets keep where it is <code>TRUE</code></li>
-<li><code>==</code> tests equality (two equals signs). A single <code>=</code> is assignment and will not do what you mean</li>
+<li><code>==</code> tests equality (two equals signs). A single <code>=</code> is assignment</li>
 <li><code>which(wages &gt; 30)</code> gives the <em>positions</em> instead: <code>3 4 5</code></li>
 </ul>
 </section>
-<section id="from-vectors-to-tables" class="slide level2">
-<h2>From Vectors to Tables</h2>
+<section id="from-vectors-to-data-frames" class="slide level2">
+<h2>From Vectors to data frames</h2>
 <ul>
-<li>One vector is a single column. Data comes in many columns at once</li>
-<li>A <strong>table</strong> lines up several vectors of the same length, side by side</li>
-<li>Each column can be a different type: a text <code>name</code>, a numeric <code>wage</code>, a logical <code>is_union</code></li>
-<li>R has two table objects. We meet the base one, then the one we actually use</li>
+<li>One vector is a single column.</li>
+<li>A data frame lines up several vectors of the same length, side by side</li>
 </ul>
 </section>
-<section id="the-base-data.frame" class="slide level2">
-<h2>The Base <code>data.frame</code></h2>
+<section id="the-base-r-data.frame" class="slide level2">
+<h2>The Base R <code>data.frame</code></h2>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href></a>people <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
 <span id="cb8-2"><a href></a>  <span class="at">name     =</span> <span class="fu">c</span>(<span class="st">&quot;ada&quot;</span>, <span class="st">&quot;cal&quot;</span>, <span class="st">&quot;ida&quot;</span>),</span>
 <span id="cb8-3"><a href></a>  <span class="at">wage     =</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">31</span>, <span class="dv">44</span>),</span>
@@ -1242,7 +1227,7 @@ Coady Wing
 <span id="cb8-10"><a href></a>people[<span class="dv">1</span>, ]        <span class="co"># row 1, all columns</span></span>
 <span id="cb8-11"><a href></a>people[, <span class="st">&quot;wage&quot;</span>]   <span class="co"># the wage column</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li><code>data.frame</code> is base R’s table. It works, and you will see it everywhere</li>
+<li><code>data.frame</code> is base R’s table.</li>
 <li><code>$</code> names a column; <code>[row, col]</code> indexes like a matrix</li>
 </ul>
 </section>
@@ -1259,9 +1244,8 @@ Coady Wing
 <span id="cb9-9"><a href></a><span class="co"># filter: refer to columns by bare name</span></span>
 <span id="cb9-10"><a href></a>people[is_union <span class="sc">==</span> <span class="cn">TRUE</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
-<li>A <code>data.table</code> is a <code>data.frame</code> with a faster, cleaner grammar for real work</li>
+<li>A <code>data.table</code> is a <code>data.frame</code> with a faster, cleaner grammar</li>
 <li>You filter, compute, and summarize inside one set of brackets</li>
-<li>This is our default table for the whole course. W3 is devoted to it</li>
 </ul>
 </section>
 <section id="lists-when-pieces-dont-line-up" class="slide level2">
@@ -1282,7 +1266,7 @@ Coady Wing
 </section>
 <section id="writing-a-function" class="slide level2">
 <h2>Writing a Function</h2>
-<p>The problem: you keep typing the same computation. Name it once.</p>
+<p>Write a function when the same logic recurs and a name makes the code clearer</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href></a><span class="co"># convert an hourly wage to a rough annual figure</span></span>
 <span id="cb11-2"><a href></a>to_annual <span class="ot">&lt;-</span> <span class="cf">function</span>(hourly) {</span>
 <span id="cb11-3"><a href></a>  hourly <span class="sc">*</span> <span class="dv">40</span> <span class="sc">*</span> <span class="dv">52</span></span>
@@ -1292,55 +1276,27 @@ Coady Wing
 <span id="cb11-7"><a href></a><span class="co">#&gt; [1] 52000</span></span>
 <span id="cb11-8"><a href></a><span class="fu">to_annual</span>(<span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">31</span>))   <span class="co"># works on a vector too</span></span>
 <span id="cb11-9"><a href></a><span class="co">#&gt; [1] 37440 64480</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li><code>function(args) { ... }</code> defines it; the last line is what it returns</li>
-<li>Write a function when the same logic recurs and a name makes the code clearer</li>
-</ul>
 </section>
 <section id="a-for-loop" class="slide level2">
 <h2>A <code>for</code> Loop</h2>
-<p>The problem: do the same thing to each item in a collection.</p>
+<p>Do the same thing to each item in a collection.</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href></a>datasets <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2018.csv&quot;</span>, <span class="st">&quot;2019.csv&quot;</span>, <span class="st">&quot;2020.csv&quot;</span>)</span>
 <span id="cb12-2"><a href></a></span>
 <span id="cb12-3"><a href></a><span class="cf">for</span> (f <span class="cf">in</span> datasets) {</span>
 <span id="cb12-4"><a href></a>  <span class="fu">message</span>(<span class="st">&quot;would read &quot;</span>, f)</span>
 <span id="cb12-5"><a href></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>The loop runs the body once per element, with <code>f</code> taking each value in turn</li>
-<li>Use <code>message()</code> for status, never <code>print()</code> or <code>cat()</code> — a house rule you will hear again</li>
-</ul>
-</section>
-<section id="prefer-vectorization-to-loops" class="slide level2">
-<h2>Prefer Vectorization to Loops</h2>
-<ul>
-<li>R is built to operate on whole vectors, and doing so is faster and shorter</li>
-<li>You almost never loop to transform a column</li>
-</ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href></a>wages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">18</span>, <span class="dv">31</span>, <span class="dv">44</span>)</span>
-<span id="cb13-2"><a href></a></span>
-<span id="cb13-3"><a href></a><span class="co"># loop: fill a new vector, one entry at a time</span></span>
-<span id="cb13-4"><a href></a>annual <span class="ot">&lt;-</span> <span class="fu">numeric</span>(<span class="fu">length</span>(wages))</span>
-<span id="cb13-5"><a href></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(wages)) {</span>
-<span id="cb13-6"><a href></a>  annual[i] <span class="ot">&lt;-</span> wages[i] <span class="sc">*</span> <span class="dv">40</span> <span class="sc">*</span> <span class="dv">52</span></span>
-<span id="cb13-7"><a href></a>}</span>
-<span id="cb13-8"><a href></a></span>
-<span id="cb13-9"><a href></a><span class="co"># vectorized: the whole column at once</span></span>
-<span id="cb13-10"><a href></a>annual <span class="ot">&lt;-</span> wages <span class="sc">*</span> <span class="dv">40</span> <span class="sc">*</span> <span class="dv">52</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>The convention: reach for a function or a loop only when you would otherwise write 20+ near-identical lines</li>
-<li>Three similar lines beat one clever abstraction that hides what is happening</li>
-</ul>
+<p>The loop runs the body once per element, with <code>f</code> taking each value in turn</p>
 </section>
 <section id="getting-help" class="slide level2">
 <h2>Getting Help</h2>
+<p>R has the manual built in:</p>
 <ul>
-<li>You will forget arguments constantly. R has the manual built in</li>
-<li><code>?fread</code> opens the help page for <code>fread</code>; <code>?data.table</code> for the package</li>
-<li>The <strong>Usage</strong> and <strong>Arguments</strong> sections tell you what a function expects</li>
-<li><code>args(fread)</code> lists just the argument names when that is all you need</li>
+<li><p><code>?fread</code> opens the help page for <code>fread</code>; <code>?data.table</code> for the package</p></li>
+<li><p>The <strong>Usage</strong> and <strong>Arguments</strong> sections tell you what a function expects</p></li>
+<li><p><code>args(fread)</code> lists just the argument names when that is all you need</p></li>
 </ul>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href></a>?merge          <span class="co"># opens the help page</span></span>
-<span id="cb14-2"><a href></a><span class="fu">args</span>(merge)     <span class="co"># the argument list, quickly</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href></a>?merge          <span class="co"># opens the help page</span></span>
+<span id="cb13-2"><a href></a><span class="fu">args</span>(merge)     <span class="co"># the argument list, quickly</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
@@ -1348,8 +1304,7 @@ Coady Wing
 <li>Everything is built from <strong>vectors</strong> — ordered values of one type; watch for coercion</li>
 <li><strong>Index</strong> with <code>[ ]</code>, and subset with logical conditions like <code>wages[wages &gt; 30]</code></li>
 <li><strong>Tables</strong> stack columns; we default to <code>data.table</code> over base <code>data.frame</code></li>
-<li>Write a <strong>function</strong> or <strong>loop</strong> only when repetition truly demands it; otherwise vectorize</li>
-<li>Next: wrangling real data with <code>data.table</code> (W3)</li>
+<li>Write a <strong>function</strong> or <strong>loop</strong> when repetition makes it clearer.</li>
 </ul>
 
 </section>

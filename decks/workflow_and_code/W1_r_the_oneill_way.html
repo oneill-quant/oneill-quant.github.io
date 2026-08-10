@@ -1065,44 +1065,28 @@ Coady Wing
 </div>
 
 </section>
-<section id="the-plan" class="slide level2">
-<h2>The Plan</h2>
+<section id="base-r-vs-packages" class="slide level2">
+<h2>Base R vs Packages</h2>
 <ul>
-<li>This is the first of a short series on <em>how we work</em>, running alongside the theory</li>
-<li>Today: why R, and the small stack of tools we use for everything</li>
-<li>The organizing idea is <strong>package-lite</strong> — carry as little as you can get away with</li>
-<li>Everything here is a habit, not a rule you memorize. You build it over the semester</li>
-</ul>
-</section>
-<section id="why-r" class="slide level2">
-<h2>Why R</h2>
-<ul>
-<li>R is free, and it is what empirical economists and public-policy researchers use</li>
-<li>It handles the whole job in one place: reading data, fitting models, drawing figures</li>
-<li>It has a serious statistics library — the methods in this course are one line away</li>
-<li>You will use it every week, so the goal is comfort, not mastery on day one</li>
+<li>R is a programming language, and the base installation is a complete programming environment</li>
+<li>Packages are add-ons that extend R’s capabilities</li>
+<li>Base R is enough to do everything in this course, but packages make somethings easier and faster</li>
+<li>Packages are not always better. They can hide the mechanics of what is happening, and they can break your code if the package changes over time.</li>
 </ul>
 </section>
 <section id="the-package-lite-principle" class="slide level2">
 <h2>The Package-Lite Principle</h2>
+<p>In professional research, it seems wise to avoid using a package unless it’s absolutely necessary.</p>
 <ul>
-<li>A package is borrowed code. Every one you load is a dependency you now rely on</li>
-<li>The more packages a script needs, the more ways it can break on another machine</li>
-<li>Borrowed code also hides the mechanics — you call <code>fancy_clean()</code> and never learn what it did</li>
-<li>So we lean on a <strong>small</strong> set of tools and write the rest ourselves</li>
+<li>This makes replication easier.</li>
+</ul>
+<p>For learning, it seems wise to avoid using a package because it often impedes learning.</p>
+<ul>
+<li>you call <code>fancy_clean()</code> and never learn what it did</li>
 </ul>
 </section>
-<section id="why-minimalism-is-a-replication-strategy" class="slide level2">
-<h2>Why Minimalism Is a Replication Strategy</h2>
-<ul>
-<li>Your code has to run on a grader’s laptop today and your own laptop in five years</li>
-<li>Each dependency is a bet that the package still installs and still behaves the same</li>
-<li>Fewer bets means fewer surprises, and a lean script is one that still works later</li>
-<li>You also <em>learn more</em>: doing the step yourself teaches the fundamentals of computing with data</li>
-</ul>
-</section>
-<section id="our-stack" class="slide level2 center">
-<h2>Our Stack</h2>
+<section id="the-tools-for-this-course." class="slide level2 center">
+<h2>The tools for this course.</h2>
 </section>
 <section id="the-stack-in-one-table" class="slide level2">
 <h2>The Stack in One Table</h2>
@@ -1138,20 +1122,17 @@ Coady Wing
 <td><strong>ggplot2</strong></td>
 <td>Graphics</td>
 </tr>
+<tr class="even">
+<td><strong>pacman</strong></td>
+<td><code>p_load()</code> installs a package if missing, then loads it, in one call</td>
+</tr>
+<tr class="odd">
+<td><strong>here</strong></td>
+<td><code>here()</code> builds file paths from the project root, so paths never hard-code your username</td>
+</tr>
 </tbody>
 </table>
-<ul>
-<li>That is the whole kit for this course, just five tools</li>
-</ul>
-</section>
-<section id="two-conveniences-we-encourage" class="slide level2">
-<h2>Two Conveniences We Encourage</h2>
-<ul>
-<li><strong>pacman</strong> — <code>p_load()</code> installs a package if missing, then loads it, in one call</li>
-<li><strong>here</strong> — <code>here()</code> builds file paths from the project root, so paths never hard-code your username</li>
-<li>Neither is strictly necessary. You could load packages and write paths by hand</li>
-<li>We use them because they remove two of the most common ways a script breaks on someone else’s machine</li>
-</ul>
+<p>If you need more than this, you are probably doing something wrong. Even this list really is rarely needed.</p>
 </section>
 <section id="the-starter-snippet" class="slide level2">
 <h2>The Starter Snippet</h2>
@@ -1160,70 +1141,13 @@ Coady Wing
 <span id="cb1-2"><a href></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
 <span id="cb1-3"><a href></a>  data.table, collapse, fixest, ggplot2, here</span>
 <span id="cb1-4"><a href></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ul>
-<li>One line, and the whole stack is ready</li>
-<li>No <code>library()</code> called five times, no separate install step to forget</li>
-<li><code>here</code> is now available to point at files from the project root</li>
-</ul>
-</section>
-<section id="what-we-avoid-and-why" class="slide level2">
-<h2>What We Avoid, and Why</h2>
-<table class="caption-top">
-<colgroup>
-<col style="width: 63%">
-<col style="width: 36%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Habit you’ll see elsewhere</th>
-<th>Why we skip it</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sprawling tidyverse pipelines</td>
-<td>More dependencies, and more behavior hidden from you</td>
-</tr>
-<tr class="even">
-<td><code>setwd(&quot;/Users/you/...&quot;)</code></td>
-<td>Breaks the moment the code moves to another machine</td>
-</tr>
-<tr class="odd">
-<td>Absolute file paths</td>
-<td>Same problem — hard-codes one person’s folders</td>
-</tr>
-<tr class="even">
-<td><code>rm(list=ls())</code> at the top</td>
-<td>A crutch that hides a script’s real dependence on a clean session</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="a-word-on-rmlistls" class="slide level2">
-<h2>A Word on <code>rm(list=ls())</code></h2>
-<ul>
-<li>You will see old scripts open with <code>rm(list=ls())</code> to wipe the workspace</li>
-<li>It papers over a deeper habit: relying on objects that are already floating in memory</li>
-<li>The real fix is a script that runs top to bottom in a <em>fresh</em> session and produces the same result</li>
-<li>We get there with project structure and a <code>main.r</code>, not by scrubbing the workspace (decks W4 and W5)</li>
-</ul>
-</section>
-<section id="when-to-add-a-package" class="slide level2">
-<h2>When to Add a Package</h2>
-<ul>
-<li>Package-lite does not mean suffering. <code>data.table</code> and <code>fixest</code> are doing real work for us</li>
-<li>It means we <em>choose</em> dependencies deliberately, and we know what each one buys</li>
-<li>When a package genuinely earns its place, we add it. Most do not</li>
-<li>The default is: could I do this with what I already have?</li>
-</ul>
 </section>
 <section id="recap" class="slide level2">
 <h2>Recap</h2>
 <ul>
-<li>R is the tool for the semester; comfort comes from using it every week</li>
+<li>R is the tool for the semester</li>
 <li>We keep a small stack: <strong>base R, data.table, collapse, fixest, ggplot2</strong>, plus <strong>pacman</strong> and <strong>here</strong></li>
 <li>Minimalism is how code stays runnable on other machines and in later years</li>
-<li>Next: R and RStudio from the ground up (W2)</li>
 </ul>
 
 </section>
