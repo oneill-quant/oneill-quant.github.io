@@ -1047,6 +1047,58 @@ display: block;
 margin-left: auto;
 margin-right: 0; }
 </style>
+  <!--
+    fragment-toggle.html — runtime control over step-by-step reveals.
+
+    The series-wide default lives in each course's slides/_quarto.yml
+    (`fragments: true`). This adds two ways to override it at lecture time,
+    with no re-render:
+
+      deck.html?static   every fragment is visible as soon as the slide opens
+      press "a"          toggle reveals on and off during the lecture
+
+    Both call Reveal.configure({fragments: ...}). Passing false runs reveal's
+    fragment disable(), which marks every .fragment visible; passing true runs
+    enable(), which restores stepping. "a" is unbound in reveal's default keymap.
+  -->
+  <script>
+  (function () {
+    var revealsOn = !/[?&]static(&|=|$)/.test(window.location.search);
+
+    function apply(on) {
+      if (window.Reveal && window.Reveal.configure) {
+        window.Reveal.configure({ fragments: on });
+      }
+    }
+
+    function typingInAField(el) {
+      return el && (el.isContentEditable ||
+                    /^(INPUT|TEXTAREA|SELECT)$/.test(el.tagName || ""));
+    }
+
+    function start() {
+      apply(revealsOn);
+      document.addEventListener("keydown", function (ev) {
+        if (ev.key !== "a" && ev.key !== "A") return;
+        if (ev.altKey || ev.ctrlKey || ev.metaKey) return;
+        if (typingInAField(ev.target)) return;
+        revealsOn = !revealsOn;
+        apply(revealsOn);
+      });
+    }
+
+    // Reveal is initialised well after this header runs, so wait for it.
+    var tries = 0;
+    var timer = setInterval(function () {
+      if (window.Reveal && window.Reveal.isReady && window.Reveal.isReady()) {
+        clearInterval(timer);
+        start();
+      } else if (++tries > 400) {
+        clearInterval(timer);   // give up quietly after ~20s
+      }
+    }, 50);
+  })();
+  </script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
